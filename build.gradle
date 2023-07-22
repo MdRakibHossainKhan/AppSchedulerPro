@@ -6,16 +6,6 @@ plugins {
     id 'com.google.dagger.hilt.android' version '2.46.1' apply false
 }
 
-allprojects {
-    repositories {
-        configurations.all {
-            resolutionStrategy {
-                force 'org.xerial:sqlite-jdbc:3.34.0'
-            }
-        }
-    }
-}
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

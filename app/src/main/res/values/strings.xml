@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">App Scheduler Pro</string>
-    <string name="scheduled_app">Scheduled App</string>
+    <string name="app_logo">App Logo</string>
     <string name="add_app">Add App</string>
+    <string name="scheduled_app">Scheduled App</string>
+    <string name="executed">Executed</string>
+    <string name="active">Active</string>
+    <string name="not_active">Not Active</string>
+    <string name="schedule_expired">Schedule Expired</string>
+    <string name="package_name">Package Name</string>
+    <string name="scheduled_date_time">Scheduled Date Time</string>
+    <string name="status">Status</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="select_future_time">Select Future Time</string>
+    <string name="schedule_time_is_taken">Schedule Time is Taken</string>
 </resources>
