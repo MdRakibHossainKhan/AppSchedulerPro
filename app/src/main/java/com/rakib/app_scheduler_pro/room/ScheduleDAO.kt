@@ -11,13 +11,13 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ScheduleDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(model: Schedule)
+    fun insert(model: Schedule)
 
     @Query("SELECT * FROM schedule ORDER BY id ASC")
     fun getScheduleList(): Flow<List<Schedule>>
 
     @Query("SELECT EXISTS(SELECT * FROM schedule WHERE scheduleTimeInWord = :time)")
-    suspend fun doesDataExist(time: String): Boolean
+    fun doesDataExist(time: String): Boolean
 
     @Delete
     fun deleteSchedule(model: Schedule)
@@ -26,5 +26,5 @@ interface ScheduleDAO {
     fun update(time: Long, timeInWord: String, id: Int, status: Boolean)
 
     @Query("DELETE FROM schedule")
-    suspend fun clearScheduleTable()
+    fun clearScheduleTable()
 }
