@@ -23,7 +23,7 @@
         android:theme="@style/Theme.AppSchedulerPro"
         tools:targetApi="31">
         <activity
-            android:name=".scheduler.ScheduleActivity"
+            android:name=".scheduler.SchedulerActivity"
             android:exported="false" />
         <activity
             android:name=".home.HomeActivity"

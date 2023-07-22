@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.rakib.appschedulerpro.model.Schedule" />
+            type="com.rakib.app_scheduler_pro.model.Schedule" />
     </data>
 
     <androidx.cardview.widget.CardView

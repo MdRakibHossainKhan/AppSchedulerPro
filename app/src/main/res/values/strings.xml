@@ -14,4 +14,8 @@
     <string name="delete">Delete</string>
     <string name="select_future_time">Select Future Time</string>
     <string name="schedule_time_is_taken">Schedule Time is Taken</string>
+    <string name="permission_dialog_title">Permission Alert</string>
+    <string name="permission_dialog_message">Allow display over other apps permission.</string>
+    <string name="allow">Allow</string>
+    <string name="deny">Deny</string>
 </resources>
