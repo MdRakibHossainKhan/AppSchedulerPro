@@ -30,11 +30,13 @@ class SchedulerAdapter(
 
         if (Calendar.getInstance().timeInMillis > items[position].scheduleTime) {
             viewHolder.binding.status.text = context.getString(R.string.executed)
+            viewHolder.binding.status.setTextColor(context.getColor(R.color.gray))
         } else {
             if (items[position].status) {
                 viewHolder.binding.status.text = context.getString(R.string.active)
             } else {
-                viewHolder.binding.status.text = context.getString(R.string.not_active)
+                viewHolder.binding.status.text = context.getString(R.string.inactive)
+                viewHolder.binding.status.setTextColor(context.getColor(R.color.gray))
             }
         }
 

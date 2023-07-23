@@ -11,24 +11,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/margin_mid"
-        android:layout_marginTop="@dimen/margin_max"
-        android:layout_marginEnd="@dimen/margin_mid"
-        android:layout_marginBottom="@dimen/margin_max"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimaryFixed"
+            android:layout_marginStart="@dimen/margin_mid"
+            android:layout_marginTop="@dimen/margin_max"
+            android:layout_marginEnd="@dimen/margin_mid"
             android:text="@string/app_name"
             android:textAlignment="center"
+            android:textColor="@color/medium_orchid"
             android:textSize="@dimen/title_text" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_mid"
+            android:layout_marginStart="@dimen/margin_mid"
+            android:layout_marginTop="@dimen/margin_max"
+            android:layout_marginEnd="@dimen/margin_mid"
+            android:background="@drawable/rounded_corner_view"
+            android:padding="@dimen/padding_mid"
             android:text="@string/scheduled_app"
             android:textAlignment="center"
             android:textSize="@dimen/sub_title_text" />
@@ -41,24 +44,26 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/emptyScheduleAnimationView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
-                app:lottie_loop="true"
+                app:lottie_loop="false"
                 app:lottie_rawRes="@raw/empty_schedule" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/scheduledAppRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
@@ -67,7 +72,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="@dimen/margin_mid"
+            android:layout_marginEnd="@dimen/margin_mid"
+            android:layout_marginBottom="@dimen/margin_mid"
             android:text="@string/add_app"
-            android:textSize="@dimen/text" />
+            android:textSize="@dimen/text"
+            app:icon="@android:drawable/ic_media_play"
+            app:iconGravity="textEnd" />
     </LinearLayout>
 </layout>

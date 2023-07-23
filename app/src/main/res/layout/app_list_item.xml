@@ -30,17 +30,16 @@
                 android:id="@+id/appLogoImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:contentDescription="@string/app_logo"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:contentDescription="@string/app_logo" />
 
             <TextView
                 android:id="@+id/appNameTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/margin_min"
                 android:text="@{model.appName}"
-                android:textStyle="bold"
+                android:textSize="@dimen/text"
                 tools:text="@string/app_name" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

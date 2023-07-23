@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.view.View
 import com.rakib.app_scheduler_pro.R
 import com.rakib.app_scheduler_pro.adapter.SchedulerAdapter
 import com.rakib.app_scheduler_pro.base.BaseActivity
@@ -22,8 +23,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeActivity : BaseActivity<ActivityHomeBinding>(), DatePickerDialog.OnDateSetListener,
     TimePickerDialog.OnTimeSetListener, SchedulerDeleteCallBack {
-    lateinit var builder: AlertDialog.Builder
-    lateinit var alertDialog: AlertDialog
+    private lateinit var builder: AlertDialog.Builder
+    private lateinit var alertDialog: AlertDialog
 
     override fun getView() = R.layout.activity_home
 
@@ -35,6 +36,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), DatePickerDialog.OnDat
         }
 
         homeViewModel.getScheduleData.observe(this) {
+            if (it.isNotEmpty()) {
+                binding.emptyScheduleAnimationView.visibility = View.GONE
+            } else {
+                binding.emptyScheduleAnimationView.visibility = View.VISIBLE
+            }
+
             val adapter = SchedulerAdapter(this, this)
             binding.scheduledAppRecyclerView.setHasFixedSize(true)
             binding.scheduledAppRecyclerView.adapter = adapter

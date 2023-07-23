@@ -5,10 +5,8 @@
     <string name="scheduled_app">Scheduled App</string>
     <string name="executed">Executed</string>
     <string name="active">Active</string>
-    <string name="not_active">Not Active</string>
+    <string name="inactive">Inactive</string>
     <string name="schedule_expired">Schedule Expired</string>
-    <string name="package_name">Package Name</string>
-    <string name="scheduled_date_time">Scheduled Date Time</string>
     <string name="status">Status</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>

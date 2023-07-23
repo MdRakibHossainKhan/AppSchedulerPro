@@ -1,5 +1,6 @@
 package com.rakib.app_scheduler_pro.scheduler
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -51,29 +52,35 @@ class SchedulerActivity : BaseActivity<ActivitySchedulerBinding>(),
         showDatePicker(false)
     }
 
+    @SuppressLint("QueryPermissionsNeeded")
     private fun installedApps(): MutableList<AppData> {
-        val appList = mutableListOf<AppData>()
+        val appList: MutableList<AppData>
+        val systemAppList = mutableListOf<AppData>()
+        val userInstalledAppList = mutableListOf<AppData>()
         val apps = packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
 
         for (app in apps) {
-            if (app.flags and (ApplicationInfo.FLAG_UPDATED_SYSTEM_APP or ApplicationInfo.FLAG_SYSTEM) > 0) {
-                // System App
-            } else {
-                // User Installed App
-                try {
-                    val appName = packageManager.getApplicationLabel(
-                        packageManager.getApplicationInfo(
-                            app.packageName,
-                            PackageManager.GET_META_DATA
-                        )
+            try {
+                val appName = packageManager.getApplicationLabel(
+                    packageManager.getApplicationInfo(
+                        app.packageName,
+                        PackageManager.GET_META_DATA
                     )
+                )
 
-                    appList.add(AppData(1, appName as String, app.packageName))
-                } catch (e: PackageManager.NameNotFoundException) {
-                    e.printStackTrace()
+                if (app.flags and (ApplicationInfo.FLAG_UPDATED_SYSTEM_APP or ApplicationInfo.FLAG_SYSTEM) > 0) {
+                    // System App
+                    systemAppList.add(AppData(1, appName as String, app.packageName))
+                } else {
+                    // User Installed App
+                    userInstalledAppList.add(AppData(1, appName as String, app.packageName))
                 }
+            } catch (e: PackageManager.NameNotFoundException) {
+                e.printStackTrace()
             }
         }
+
+        appList = (userInstalledAppList + systemAppList) as MutableList<AppData>
 
         return appList
     }
